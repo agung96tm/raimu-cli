@@ -1,0 +1,20 @@
+{
+  "name": "raimu-cli",
+  "version": "0.0.1-beta",
+  "description": "Command Line to Help Generate Empty Projects or Packages to Start Your Idea.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "bin": {
+    "raimu": "src/index.js"
+  },
+  "author": {
+    "name": "Agung Yuliyanto",
+    "email": "agung.96tm@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}

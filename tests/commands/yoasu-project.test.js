@@ -1,4 +1,4 @@
-const { YoasuCommand } = require('../../../src/commands/projects/yoasu')
+const { YoasuCommand } = require('../../src/commands/yoasu-project')
 
 test('yoasu success created as instance without error', () => {
   const command = new YoasuCommand()

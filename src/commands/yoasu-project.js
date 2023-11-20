@@ -1,6 +1,6 @@
-const { ProjectCommand } = require('../base')
+const { ProjectCommand } = require('./base')
 
-class YoasuCommand extends ProjectCommand {
+class YoasuProjectCommand extends ProjectCommand {
   constructor() {
     super()
   }
@@ -14,4 +14,4 @@ class YoasuCommand extends ProjectCommand {
   }
 }
 
-module.exports = { YoasuCommand }
+module.exports = { YoasuProjectCommand }

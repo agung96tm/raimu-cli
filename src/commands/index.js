@@ -1,6 +1,6 @@
-const { packages } = require('./packages')
-const { projects } = require('./projects')
+const { YoasuPackageCommand } = require('./yoasu-package')
+const { YoasuProjectCommand } = require('./yoasu-project')
 
-const allCommands = [...packages, ...projects]
+const allCommands = [new YoasuPackageCommand(), new YoasuProjectCommand()]
 
 module.exports = { allCommands }

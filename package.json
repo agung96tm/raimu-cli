@@ -27,7 +27,9 @@
     "README.md"
   ],
   "dependencies": {
-    "commander": "^11.1.0"
+    "commander": "^11.1.0",
+    "node-fetch": "^2.7.0",
+    "unzipper": "^0.10.14"
   },
   "devDependencies": {
     "eslint": "^8.54.0",

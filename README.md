@@ -13,7 +13,13 @@ npm install -g raimu-cli
 ```
 
 ## How to Use
-_WIP_
+```shell
+raimu package:<package_name> <your_project_name>
+
+# example
+raimu package:yoasu yoasu-job
+raimu project:yoasu my-website
+```
 
 ## Contributors
 

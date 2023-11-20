@@ -1,12 +1,12 @@
 const { ProjectCommand } = require('../core/commands')
 
 class YoasuProjectCommand extends ProjectCommand {
-  constructor() {
-    super()
-  }
-
   command() {
     return 'project:yoasu'
+  }
+
+  projectUrl() {
+    return 'https://api.github.com/repos/agung96tm/yoasu/releases/latest'
   }
 
   description() {

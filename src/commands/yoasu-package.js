@@ -5,6 +5,10 @@ class YoasuPackageCommand extends PackageCommand {
     return `package:yoasu`
   }
 
+  projectUrl() {
+    return 'https://api.github.com/repos/agung96tm/yoasu/releases/latest'
+  }
+
   description() {
     return 'React Typescript'
   }

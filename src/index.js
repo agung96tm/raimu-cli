@@ -1,7 +1,9 @@
-const { Command } = require('./core/commands')
+#!/usr/bin/env node
+
+const { Command } = require('./core/commands/core')
 const { allCommands } = require('./commands')
 
-const command = new Command(process)
+const command = new Command()
 command.register(allCommands)
 
 command.execute()

@@ -1,4 +1,4 @@
-const { ProjectCommand } = require('./base')
+const { ProjectCommand } = require('../core/commands')
 
 class YoasuProjectCommand extends ProjectCommand {
   constructor() {

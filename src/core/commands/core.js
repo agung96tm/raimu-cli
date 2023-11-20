@@ -1,15 +1,13 @@
 const { program } = require('commander')
 
 class Command {
-  constructor(process) {
+  constructor() {
     this.program = program
-    this.process = process
     this.totalCommands = 0
   }
 
   register(commands) {
     commands.forEach((command) => {
-      command.addProcess(this.process)
       const cmd = this.program
         .command(command.command())
         .description(command.description())

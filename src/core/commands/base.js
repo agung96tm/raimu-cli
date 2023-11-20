@@ -4,14 +4,6 @@ const fetch = require('node-fetch')
 const { Extract } = require('unzipper')
 
 class BaseCommand {
-  constructor() {
-    this.process = null
-  }
-
-  addProcess(process) {
-    this.process = process
-  }
-
   command() {
     return ''
   }
@@ -49,10 +41,10 @@ class BaseCommand {
 
           const unzip_operation = Extract({ path: process.cwd() })
           unzip_operation.on('close', () => {
-            const files = fs.readdirSync(this.process.cwd())
+            const files = fs.readdirSync(process.cwd())
             files.every((file) => {
               if (file.startsWith('agung96tm-yoasu')) {
-                fs.rename(path.join(this.process.cwd(), file), args[0], (err) => {
+                fs.rename(path.join(process.cwd(), file), args[0], (err) => {
                   if (err) throw err
                   console.log('Yoasu project success cloned')
                 })

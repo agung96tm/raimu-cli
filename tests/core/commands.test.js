@@ -1,5 +1,5 @@
-const { Command } = require('../../src/core/commands')
-const { PackageCommand } = require('../../src/commands/base') // Adjust the path based on your project structure
+const { Command } = require('../../src/core/commands/core')
+const { PackageCommand } = require('../../src/core/commands/base') // Adjust the path based on your project structure
 
 class MockCommand extends PackageCommand {
   command() {

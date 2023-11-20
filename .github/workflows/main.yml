@@ -1,4 +1,4 @@
-name: Go Test and Coverage
+name: Github Action
 
 on:
   push:

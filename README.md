@@ -1,10 +1,14 @@
 Raimu CLI
 ===================================
+[![Github Action](https://github.com/agung96tm/raimu-cli/actions/workflows/main.yml/badge.svg)](https://github.com/agung96tm/raimu-cli/actions/workflows/main.yml)
+[![Codecov](https://codecov.io/gh/agung96tm/raimu-cli/branch/main/graph/badge.svg)](https://codecov.io/gh/agung96tm/raimu-cli)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/agung96tm/raimu-cli/blob/master/LICENSE.md)
+
 Command Line to Help Generate Empty Project or Package to Start Your Idea.
 
-⚠️ **Important Information**
 
-THIS PACKAGE NOT READY TO USED. PLEASE DON'T INSTALL.
+> [!CAUTION]
+> ⚠️ THIS PACKAGE NOT READY TO USED. PLEASE DON'T INSTALL.
 
 
 ## How to Install

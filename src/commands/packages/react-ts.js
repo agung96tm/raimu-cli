@@ -1,21 +1,17 @@
-const { PackageCommand } = require("../base");
+const { PackageCommand } = require('../base')
 
 class ReactTsCommand extends PackageCommand {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super()
+  }
 
-    command() {
-        return "package:react-ts"
-    }
+  command() {
+    return 'package:react-ts'
+  }
 
-    description() {
-        return "React Typescript"
-    }
-
-    action(...args) {
-        // do something about clone and create new projects
-    }
+  description() {
+    return 'React Typescript'
+  }
 }
 
-module.exports = { ReactTsCommand };
+module.exports = { ReactTsCommand }

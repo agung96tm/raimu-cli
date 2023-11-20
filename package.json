@@ -4,7 +4,10 @@
   "description": "Command Line to Help Generate Empty Projects or Packages to Start Your Idea.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "test": "jest --config jestconfig.json"
   },
   "bin": {
     "raimu": "src/index.js"
@@ -14,7 +17,25 @@
     "email": "agung.96tm@gmail.com"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agung96tm/raimu-cli.git"
+  },
+  "files": [
+    "src",
+    "LICENSE.md",
+    "README.md"
+  ],
   "dependencies": {
     "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.1.0",
+    "ts-jest": "^29.1.1"
   }
 }

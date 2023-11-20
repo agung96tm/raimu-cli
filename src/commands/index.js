@@ -1,9 +1,6 @@
-const { packages} = require('./packages');
-const { projects } = require('./projects');
+const { packages } = require('./packages')
+const { projects } = require('./projects')
 
-const allCommands = [
-    ...packages,
-    ...projects,
-]
+const allCommands = [...packages, ...projects]
 
-module.exports = { allCommands };
+module.exports = { allCommands }

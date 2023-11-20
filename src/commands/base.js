@@ -1,24 +1,20 @@
 class BaseCommand {
-    command() {
-        return ""
-    }
+  command() {
+    return ''
+  }
 
-    description() {
-        return ""
-    }
+  description() {
+    return ''
+  }
 
-    action(...args) {
-        return null
-    }
+  // eslint-disable-next-line no-unused-vars
+  action(...args) {
+    return null
+  }
 }
 
-class ProjectCommand extends BaseCommand {
+class ProjectCommand extends BaseCommand {}
 
-}
+class PackageCommand extends BaseCommand {}
 
-class PackageCommand extends BaseCommand {
-
-}
-
-
-module.exports = { BaseCommand, ProjectCommand, PackageCommand };
+module.exports = { BaseCommand, ProjectCommand, PackageCommand }

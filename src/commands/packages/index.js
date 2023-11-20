@@ -1,7 +1,5 @@
-const { ReactTsCommand } = require('./react-ts');
+const { ReactTsCommand } = require('./react-ts')
 
-const packages = [
-    new ReactTsCommand(),
-]
+const packages = [new ReactTsCommand()]
 
-module.exports = { packages };
+module.exports = { packages }

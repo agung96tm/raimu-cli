@@ -1,21 +1,17 @@
-const { ProjectCommand } = require("../base");
+const { ProjectCommand } = require('../base')
 
 class YoasuCommand extends ProjectCommand {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super()
+  }
 
-    command() {
-        return "projects:yoasu"
-    }
+  command() {
+    return 'project:yoasu'
+  }
 
-    description() {
-        return "Yoasu its template to generated personal website"
-    }
-
-    action(...args) {
-        // do something about clone and create new projects
-    }
+  description() {
+    return 'Yoasu its template to generated personal website'
+  }
 }
 
-module.exports = { YoasuCommand };
+module.exports = { YoasuCommand }

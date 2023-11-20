@@ -1,7 +1,5 @@
-const { YoasuCommand } = require('./yoasu');
+const { YoasuCommand } = require('./yoasu')
 
-const projects = [
-    new YoasuCommand(),
-]
+const projects = [new YoasuCommand()]
 
-module.exports = { projects };
+module.exports = { projects }

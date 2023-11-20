@@ -1,4 +1,4 @@
-const { PackageCommand } = require('./base')
+const { PackageCommand } = require('../core/commands')
 
 class YoasuPackageCommand extends PackageCommand {
   command() {

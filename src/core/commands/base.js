@@ -1,9 +1,16 @@
 const fs = require('fs')
 const path = require('path')
-const fetch = require('node-fetch')
-const { Extract } = require('unzipper')
+const { GithubNetwork } = require('./network')
 
 class BaseCommand {
+  constructor() {
+    this.network = new GithubNetwork()
+  }
+
+  projectUrl() {
+    return ''
+  }
+
   command() {
     return ''
   }
@@ -13,54 +20,19 @@ class BaseCommand {
   }
 
   action(args, ..._) {
-    this.safeToCreateFolder(args[0])
+    this.checkCommandValid()
+    this.checkSafeToCreateDir(args[0])
 
-    fetch('https://api.github.com/repos/agung96tm/yoasu/releases/latest', {
-      headers: { 'User-Agent': 'https://api.github.com/meta' },
-      json: true,
-    })
-      .then((res) => {
-        if (!res.ok) {
-          console.log(`error: fail to fetch information`)
-          process.exit()
-        }
-        return res.json()
-      })
-      .then((data) => {
-        const { zipball_url: url, tag_name: version } = data
+    this.network.fetchLatestInfoRelease(this.projectUrl()).then(({ url, version, owner, repoName }) => {
+      const findName = `${owner}-${repoName}`
+      console.log('Yoasu ' + version + ' is available!')
 
-        console.log('Yoasu ' + version + ' is available!')
-        console.log('Start to Download...')
-
-        fetch(url, {
-          headers: { 'User-Agent': 'https://api.github.com/meta' },
-        }).then((response) => {
-          if (!response.ok) {
-            throw new Error('invalid')
-          }
-
-          const unzip_operation = Extract({ path: process.cwd() })
-          unzip_operation.on('close', () => {
-            const files = fs.readdirSync(process.cwd())
-            files.every((file) => {
-              if (file.startsWith('agung96tm-yoasu')) {
-                fs.rename(path.join(process.cwd(), file), args[0], (err) => {
-                  if (err) throw err
-                  console.log('Yoasu project success cloned')
-                })
-                return false
-              } else {
-                return true
-              }
-            })
-          })
-
-          return response.body.pipe(unzip_operation)
+      this.network.downloadZip(url, () => {
+        this.renameDir(findName, args[0]).then(() => {
+          console.log('Success to create new Project')
         })
-        // process.exit();
       })
-
-    return null
+    })
   }
 
   arguments() {
@@ -72,12 +44,36 @@ class BaseCommand {
     ]
   }
 
-  safeToCreateFolder(name) {
+  checkSafeToCreateDir(name) {
     const projectPath = path.join(process.cwd(), name)
     if (fs.existsSync(projectPath)) {
       console.log(`error: ${name} directory is already exist`)
       process.exit()
     }
+  }
+
+  checkCommandValid() {
+    if (!this.projectUrl() || !this.command()) {
+      throw new Error('invalid command, project url and command must be filled')
+    }
+  }
+
+  renameDir(findOldName, newName) {
+    const files = fs.readdirSync(process.cwd())
+    return new Promise((resolve) => {
+      files.every((file) => {
+        if (file.startsWith(findOldName)) {
+          fs.rename(path.join(process.cwd(), file), newName, (err) => {
+            if (err) throw err
+            resolve()
+          })
+          return false
+        } else {
+          return true
+        }
+      })
+      resolve()
+    })
   }
 }
 
